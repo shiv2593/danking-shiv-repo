@@ -116,15 +116,14 @@ resource "aws_network_interface" "proj-ni" {
  security_groups = [aws_security_group.proj-sg.id]
 }
 
-# Attaching an elastic IP to the network interface
-resource "aws_eip" "proj-eip" {
+resource "aws_eip" "Elastic-eip" {
  vpc = true
  network_interface = aws_network_interface.proj-ni.id
  associate_with_private_ip = "10.0.1.10"
 }
 
 
-# Creating an ubuntu EC2 instance
+# Creating an ubuntu EC2 instance or banking project
 resource "aws_instance" "Test-Server" {
  ami = "ami-0a0e5d9c7acc336f1"
  instance_type = "t2.micro"
